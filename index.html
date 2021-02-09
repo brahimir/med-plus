@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>med+ home</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="main.css" />
+
+    <!-- Font Awesome JS -->
+    <!-- <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+      crossorigin="anonymous"
+    ></script> -->
+
+    <!-- jQuery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Popper JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bing Map API -->
+    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=AkQ8K4AtiQ7woJ_P_cpCGKVLq_g3X88RMKdqXOxKkM1SmtIZpdLBBKiY7VQtmJaf'></script>
+    
+    <!-- External JS -->
+    <script src="main.js"></script>
+
+    <script>
+      
+        /**
+         * Shows ALL citys in the pushArray.
+         */
+        function sortAll() {
+          for (var i = 0; i < pushArray.length; i++) {
+            pushArray[i].setOptions({ visible: true });
+          }
+        }
+
+        function sortCity() {
+
+          if ($("#selectCity").val() === "hamilton") {
+
+             /**
+             * Sorts the pushArray by metadata.community Hamilton.
+             */
+              sortAll();
+              for (var i = 0; i < pushArray.length; i++) {
+                  if (pushArray[i].metadata.community !== "HAMILTON") {
+                      pushArray[i].setOptions({visible: false});
+                  }
+              }
+          }
+
+          if ($("#selectCity").val() === "burlington") {
+
+            /**
+            * Sorts the pushArray by metadata.community Burlington.
+            */
+            sortAll();
+            for (var i = 0; i < pushArray.length; i++) {
+                if (pushArray[i].metadata.community !== "BURLINGTON") {
+                    pushArray[i].setOptions({visible: false});
+                }
+              }
+            }
+
+            if ($("#selectCity").val() === "toronto") {
+
+            /**
+            * Sorts the pushArray by metadata.community Toronto.
+            */
+            sortAll();
+            for (var i = 0; i < pushArray.length; i++) {
+                if (pushArray[i].metadata.community !== "TORONTO") {
+                    pushArray[i].setOptions({visible: false});
+                }
+              }
+            }
+
+            if ($("#selectCity").val() === "oakville") {
+
+            /**
+            * Sorts the pushArray by metadata.community Oakville.
+            */
+            sortAll();
+            for (var i = 0; i < pushArray.length; i++) {
+                if (pushArray[i].metadata.community !== "OAKVILLE") {
+                    pushArray[i].setOptions({visible: false});
+                }
+              }
+            }   
+        }
+
+         
+    </script>
+  </head>
+
+  <body class="bg-dark">
+    <div class="wrapper">
+      <!-- Sidebar Holder -->
+      <nav id="sidebar">
+        <div class="sidebar-header">
+          <h1>med+</h1>
+        </div>
+
+        <ul class="list-unstyled components">
+          <li class="active">
+            <a
+              href="#homeSubmenu"
+              data-toggle="collapse"
+              aria-expanded="false"
+              class="dropdown-toggle"
+            >
+              search
+            </a>
+
+            <!-- Search Bar -->
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+              <li>
+                <div class="container-fluid">
+                  <div id="menuoptions">
+                      <div class="dropdown">
+                        <select onchange="sortCity()" name="selectCity" class="custom-select" id="selectCity">
+                          <option class="control-label" selected>choose a city...</option>
+                          <option>hamilton</option>
+                          <option>burlington</option>
+                          <option>oakville</option>
+                          <option>toronto</option>
+                        </select>
+                          <button type="button" onclick ="sortAll()" class="btn btn-info btn-sm" id="showall">show all</button>
+                      </div>
+                  </div> <!-- .d-flex justify-content-center -->
+                </div> <!-- .container -->
+              </li> <!-- . collapse list-unstyled #homeSubmenu-->
+            </ul>
+          </li>
+          <li>
+            <a href="addlocation.html">add location</a>
+          </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
+          <li>
+            <!-- <a href="#" class="findnearest">find nearest hospital</a> -->
+
+            <div class="centerwrapper">
+              <button type="button" class="btn btn-success btn-md" id="getdirections">map route</button>
+            </div>
+
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Page Content Holder -->
+      <div id="content">
+        <nav class="bg-dark">
+          <div class="container-fluid" id="navbar-container">
+            <button type="button" id="sidebarCollapse" class="navbar-btn active">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            <!-- Hamburger button right-->
+            <!-- <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button> -->
+          </div>
+        </nav>
+        <div class="container-fluid" id="mapcontainer">
+        </div>
+    </div>
+  </body>
+</html>

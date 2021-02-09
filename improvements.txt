@@ -1,0 +1,8 @@
+Improvements:
+
+-Fixed map to be correctly responsive with screen size
+-Added the rest of the app functionality:
+	- Searching hospitals by city
+	- Mapping a route to a selected hospital
+
+- Polished coloring of the application

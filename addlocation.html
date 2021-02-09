@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>med+ add institution</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+    <!-- Custom styles -->
+    <link href="addlocation.css" rel="stylesheet" />
+
+    <!-- jQuery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap 4.1 -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+  </head>
+  <body class="bg-dark">
+    <div class="container">
+      <div class="card card-login mx-auto mt-5">
+        <div class="card-header">add an institution</div>
+        <div class="card-body">
+
+          <form class="ajax" method="post" action="addlocation.php">
+
+            <div class="form-group required">
+              <div class="form-label-group">
+                <input
+                  type="text"
+                  id="inputName"
+                  name = "inputName"
+                  class="form-control"
+                  placeholder="Name of institution"
+                  maxlength="50"
+                />
+                <label class="control-label" for="inputName"
+                  >name of institution</label
+                >
+                <p class="text-danger" id="name-errormessage"></p>
+              </div>
+            </div>
+
+            <div class="form-group required">
+              <div class="form-label-group">
+                <input
+                  type="text"
+                  id="inputAddress"
+                  name = "inputAddress"
+                  class="form-control"
+                  placeholder="Address"
+                  maxlength="50"
+                />
+                <label class="control-label" for="inputAddress">address</label>
+                <p class="text-danger" id="address-errormessage"></p>
+              </div>
+            </div>
+
+            <div class="form-group required">
+              <div class="form-label-group">
+                <select name="inputCity" class="custom-select" id="inputCity">
+                  <option class="control-label" selected>choose a city...</option>
+                  <option>Hamilton</option>
+                  <option>Burlington</option>
+                  <option>Oakville</option>
+                  <option>Toronto</option>
+                </select>
+                <p class="text-danger" id="city-errormessage"></p>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-label-group">
+                <input
+                  type="text"
+                  id="inputPhone"
+                  name="inputPhone"
+                  class="form-control"
+                  placeholder="Phone"
+                  maxlength="20"
+                />
+                <label class="control-label" for="inputPhone">phone</label>
+                <p class="text-danger" id="phone-errormessage"></p>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-label-group">
+                  <input
+                    type="hidden"
+                    id="inputLatitude"
+                    name="inputLatitude"
+                    class="form-control"
+                    placeholder="Latitude"
+                    disabled
+                  />
+                  <p class="text-danger" id="latitude-errormessage"></p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <div class="form-label-group">
+                    <input
+                      type="hidden"
+                      id="inputLongitude"
+                      name="inputLongitude"
+                      class="form-control"
+                      placeholder="Longitude"
+                      disabled
+                    />
+                    <p class="text-danger" id="longitude-errormessage"></p>
+                  </div>
+                </div>
+
+            <div class="container-fluid"></div>
+            <button class="btn btn-primary btn-block" id="addbutton" href="index.html">
+              add
+            </button>
+            <a class="btn btn-info btn-block" href="index.html">go back</a>
+
+          </form>
+        </br>
+        <p class="text-success text-center" id="success"></p>
+
+        </div>
+        <!-- .card-body -->
+      </div>
+      <!-- .card card-login mx-auto mt-5 -->
+    </div>
+    <!-- .container -->
+
+    <!-- External JS -->
+    <script src="addlocation.js"></script>
+  </body>
+</html>
